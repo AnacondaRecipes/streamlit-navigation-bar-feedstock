@@ -12,7 +12,7 @@ source:
 build:
   entry_points:
     - streamlit-navigation-bar = streamlit_navigation_bar:print_version
-  skip: true  # [py<=38]
+  skip: true  # [s390x or py<=38]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
@@ -20,6 +20,8 @@ requirements:
   host:
     - python
     - pip
+    - wheel
+    - setuptools
   run:
     - python 
     - streamlit >=1.33.0
@@ -37,9 +39,16 @@ test:
 about:
   home: https://github.com/gabrieltempass/streamlit-navigation-bar
   summary: A component that allows you to place a navigation bar in your Streamlit app.
+  description: |
+    The navbar was built to be simple to use, look great out of the box, apply custom styles
+    integrate with streamlits UI, have a well-written documentation. It has some cool functionalities, 
+    like displaying an optional logo and external URLs. It also matches the active theme by default.
   license: MIT
   license_file: LICENSE
+  license_family: MIT
+  doc_url: https://github.com/gabrieltempass/streamlit-navigation-bar/wiki
+  dev_url: https://github.com/gabrieltempass/streamlit-navigation-bar 
 
 extra:
   recipe-maintainers:
-    - AddYourGitHubIdHere
+    - psteyer
