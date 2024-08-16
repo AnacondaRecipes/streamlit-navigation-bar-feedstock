@@ -1,0 +1,45 @@
+{% set name = "streamlit-navigation-bar" %}
+{% set version = "3.3.0" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/streamlit-navigation-bar-{{ version }}.tar.gz
+  sha256: f458c3f9bbb72a3fa07a28c1db98eceabdd49b19f71fafb44dc36042e0d4b4c4
+
+build:
+  entry_points:
+    - streamlit-navigation-bar = streamlit_navigation_bar:print_version
+  skip: true  # [py<=38]
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
+
+requirements:
+  host:
+    - python
+    - pip
+  run:
+    - python 
+    - streamlit >=1.33.0
+    - st-theme >=1.2.3
+
+test:
+  imports:
+    - streamlit_navigation_bar
+  commands:
+    - pip check
+    - streamlit-navigation-bar --help
+  requires:
+    - pip
+
+about:
+  home: https://github.com/gabrieltempass/streamlit-navigation-bar
+  summary: A component that allows you to place a navigation bar in your Streamlit app.
+  license: MIT
+  license_file: LICENSE
+
+extra:
+  recipe-maintainers:
+    - AddYourGitHubIdHere
