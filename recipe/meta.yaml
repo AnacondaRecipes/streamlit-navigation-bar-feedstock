@@ -12,7 +12,7 @@ source:
 build:
   entry_points:
     - streamlit-navigation-bar = streamlit_navigation_bar:print_version
-  skip: true  # [s390x or py<=38]
+  skip: true  # [s390x or py<38]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
@@ -46,7 +46,7 @@ about:
   license: MIT
   license_file: LICENSE
   license_family: MIT
-  doc_url: https://github.com/gabrieltempass/streamlit-navigation-bar/wiki
+  doc_url: https://github.com/gabrieltempass/streamlit-navigation-bar/wiki/API-reference
   dev_url: https://github.com/gabrieltempass/streamlit-navigation-bar 
 
 extra:
